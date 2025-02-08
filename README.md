@@ -1,8 +1,35 @@
 # Stream Log Exporter for OpenTelemetry
 
+This is a samll library that exports OpenTelemetry logs to a C++ stream (`std::ostream`).
+
 ## Why?
 
 Because it is often faster and easier to look at the program's stderr to see what is going on.
+
+## Build
+
+```sh
+cmake -B build
+cmake --build build
+sudo cmake --install build
+```
+
+### Dependencies
+
+  * opentelemetry-cpp >= 1.11.0;
+  * GTest (to build unit tests).
+
+All dependencies are installed with `vcpkg`; please make sure to run `git submodule update --init` after cloning this repository.
+
+### Configuration Options
+
+| Option Name              | Description                                                          | Default Value |
+|--------------------------|----------------------------------------------------------------------|---------------|
+| BUILD_SHARED_LIBS        | Build shared libraries                                               | OFF           |
+| BUILD_TESTING            | Whether to enable tests                                              | ON            |
+| INSTALL_STREAM_EXPORTER  | Whether to enable install targets                                    | ON            |
+| ENABLE_MAINTAINER_MODE   | Enable maintainer mode (noisy warnings and treat warnings as errors) | OFF           |
+| USE_CLANG_TIDY           | Use `clang-tidy` for linting                                         | OFF           |
 
 ## Usage
 
