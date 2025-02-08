@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.25)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake")
+
+if(EXISTS "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake")
+    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake")
+endif()
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 project(
@@ -23,7 +27,7 @@ include(build_types)
 include(tools)
 include(coverage)
 
-find_package(opentelemetry-cpp REQUIRED)
+find_package(opentelemetry-cpp CONFIG REQUIRED)
 
 add_subdirectory(src)
 if(BUILD_TESTING)
