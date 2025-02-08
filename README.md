@@ -1,6 +1,6 @@
 # Stream Log Exporter for OpenTelemetry
 
-This is a samll library that exports OpenTelemetry logs to a C++ stream (`std::ostream`).
+This is a small library that exports OpenTelemetry logs to a C++ stream (`std::ostream`).
 
 ## Why?
 
