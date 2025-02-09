@@ -63,7 +63,7 @@ jobs:
           cmake --build --preset ${{ matrix.preset.name }} -j $(nproc)
           ctest --preset ${{ matrix.preset.name }}
 
-  smkoke-test:
+  smoke-test:
     name: Smoke Test
     runs-on: ubuntu-latest
     permissions:
